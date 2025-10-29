@@ -12,6 +12,8 @@
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.jupiter.version>5.8.2</junit.jupiter.version>
   </properties>
 
   <dependencies>
@@ -22,30 +24,41 @@
       <version>1.5.2</version>
     </dependency>
 
-    <!-- ✅ I/O module (includes DOTImporter, DOTExporter, Attribute, DefaultAttribute) -->
+    <!-- ✅ I/O module for DOT importer/exporter -->
     <dependency>
       <groupId>org.jgrapht</groupId>
       <artifactId>jgrapht-io</artifactId>
       <version>1.5.2</version>
     </dependency>
 
-    <!-- ✅ JUnit 5 for tests -->
+    <!-- ✅ JUnit 5 testing -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
-      <version>5.8.2</version>
+      <version>${junit.jupiter.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
+      <!-- ✅ Java compiler -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.10.1</version>
         <configuration>
           <release>11</release>
+        </configuration>
+      </plugin>
+
+      <!-- ✅ JUnit 5 runner -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+        <configuration>
+          <useModulePath>false</useModulePath>
         </configuration>
       </plugin>
     </plugins>

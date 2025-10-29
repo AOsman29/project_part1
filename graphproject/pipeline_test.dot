@@ -1,0 +1,7 @@
+strict digraph G {
+  1 [ label="Alpha" ];
+  2 [ label="Beta" ];
+  3 [ label="Gamma" ];
+  1 -> 2 [ label="Alpha->Beta" ];
+  2 -> 3 [ label="Beta->Gamma" ];
+}

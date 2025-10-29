@@ -24,24 +24,29 @@ public class GraphManager {
         graph = new SimpleDirectedGraph<>(DefaultEdge.class);
     }
 
+    // Add a vertex
     public void addNode(String nodeName) {
         graph.addVertex(nodeName);
     }
 
+    // Add an edge between two vertices
     public void addEdge(String source, String target) {
         graph.addVertex(source);
         graph.addVertex(target);
         graph.addEdge(source, target);
     }
 
+    // Remove a vertex
     public void removeNode(String nodeName) {
         graph.removeVertex(nodeName);
     }
 
+    // Remove an edge between two vertices
     public void removeEdge(String source, String target) {
         graph.removeEdge(source, target);
     }
 
+    // Export graph to DOT format
     public void exportToDot(String filename) {
         DOTExporter<String, DefaultEdge> exporter = new DOTExporter<>();
         exporter.setVertexAttributeProvider(v -> {
@@ -65,7 +70,31 @@ public class GraphManager {
         }
     }
 
+    // Returns the underlying graph
     public Graph<String, DefaultEdge> getGraph() {
         return graph;
+    }
+
+    /**
+     * Writes a simple summary of the graph to a text file.
+     * Used by testFullPipelineSummary().
+     */
+    public void writeGraphSummary(Graph<String, DefaultEdge> graph, String filename) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Nodes (" + graph.vertexSet().size() + "): " + graph.vertexSet()).append("\n");
+        sb.append("Edges (" + graph.edgeSet().size() + "): ");
+        for (DefaultEdge e : graph.edgeSet()) {
+            sb.append(graph.getEdgeSource(e))
+              .append(" -> ")
+              .append(graph.getEdgeTarget(e))
+              .append("; ");
+        }
+
+        try (FileWriter writer = new FileWriter(filename)) {
+            writer.write(sb.toString());
+            System.out.println("📝 Graph summary written to " + filename);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
