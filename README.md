@@ -1,4 +1,4 @@
-# 🧩 CSE 464 – Course Project Part 1
+# CSE 464 – Course Project Part 1 and 2
 
 **Author:** Abdalla Osman  
 **Project Title:** Directed Graph Parser & Exporter  
@@ -7,7 +7,7 @@
 
 ---
 
-## 📘 Overview
+## Overview
 
 This project implements a **Directed Graph Manager and Parser** in Java using the **JGraphT** library.  
 It allows users to:
@@ -31,7 +31,7 @@ This project demonstrates understanding of **object-oriented design**, **graph d
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 ```
 graphproject/
 ├── pom.xml
@@ -47,7 +47,7 @@ graphproject/
 
 ---
 
-## 🧠 Key Classes
+##  Key Classes
 
 ### `GraphParser.java`
 - Imports graph data from `.dot` files.
@@ -65,7 +65,7 @@ graphproject/
 
 ---
 
-## 🧩 Example Usage
+##  Example Usage
 
 ### Compile the Project
 ```
@@ -90,12 +90,12 @@ Graph exported to demo_output.dot
 target/demo_output.dot
 ```
 
-## 🧪 Testing (Optional)
+## Testing (Optional)
 ```
 mvn test
 ```
 
-## 🧱 Build Artifacts
+## Build Artifacts
 Maven generates compiled .class files inside:
 ```
 /target/classes/
@@ -107,7 +107,7 @@ and packaged .jar files inside:
 /target/
 ```
 
-## 🔗 Dependencies
+## Dependencies
 Defined in your pom.xml:
 ```
 <dependency>
@@ -118,7 +118,7 @@ Defined in your pom.xml:
 
 ```
 
-## 🧑‍💻 Author
+## Author
 Abdalla Osman
 
 Computer Science Student, Arizona State University
